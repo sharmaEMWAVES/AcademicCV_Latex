@@ -1,0 +1,296 @@
+%Academic CV Template
+%Modified by Abhishek Sharma (Based on 2015 Jan Küster Classic CV Template (https://github.com/jankapunkt/latexcv))
+%Version Date: 27/12/2022 
+
+%This template uses fontawesome.
+
+%============================================================================%
+%
+%	DOCUMENT DEFINITION
+%
+%============================================================================%
+\documentclass[10.5pt,A4]{article}	
+\usepackage{fontawesome}
+
+%ENCODING
+\usepackage[utf8]{inputenc}	
+
+% FONTS
+
+%\usepackage[defaultsans]{droidsans}
+%\usepackage[default]{comfortaa}
+%\usepackage{cmbright}
+%\usepackage[default]{raleway}
+%\usepackage{fetamont}
+%\usepackage{tgtermes}
+%\usepackage[default]{gillius}
+%\usepackage{tgbonum}
+\usepackage{Archivo}
+% set font default
+%\renewcommand*\familydefault{\sfdefault} 	
+\usepackage[T1]{fontenc}
+
+% more font size definitions
+\usepackage{moresize}		
+
+% EXTRA PACKAGES
+\usepackage{etaremune}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{indentfirst}
+%-----------------------------------------------------------------------------
+%	PAGE LAYOUT
+%-----------------------------------------------------------------------------
+\usepackage[a4paper]{geometry}		
+\geometry{top=2cm, bottom=2cm, left=1.5cm, right=1.5cm} 	
+
+%use customized header
+\usepackage{fancyhdr}				
+\pagestyle{fancy}
+
+%less space between header and content
+\setlength{\headheight}{-2pt}		
+%indentation is zero
+%\setlength{\parindent}{0mm}
+
+%----------------------------------------------------------------------------------------
+%	TABLE /ARRAY DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+%for layouting tables
+\usepackage{multicol}			
+\usepackage{multirow}
+
+%extended aligning of tabular cells
+\usepackage{array}
+
+\newcolumntype{x}[1]{%
+>{\raggedleft\hspace{0pt}}p{#1}}%
+
+
+%----------------------------------------------------------------------------------------
+%	GRAPHICS DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+%for header image
+\usepackage{graphicx}
+
+%for floating figures
+\usepackage{wrapfig}
+\usepackage{float}
+%\floatstyle{boxed} 
+%\restylefloat{figure}
+
+%for drawing graphics		
+\usepackage{tikz}				
+\usetikzlibrary{shapes, backgrounds,mindmap, trees}
+
+
+%----------------------------------------------------------------------------------------
+%	Color DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+\usepackage{color}
+%accent color
+\definecolor{sectcol}{RGB}{204, 15, 38}
+
+%subsection color
+\definecolor{subsectcol}{RGB}{138, 84, 84}
+
+%dark background color
+\definecolor{bgcol}{rgb}{0.44,0.5,0.56}
+
+%dark background / accent color
+\definecolor{darkcol}{RGB}{0,0,0}
+
+%Publication title color
+\definecolor{pub}{rgb}{0.0, 0.0, 0.0}
+
+%footnote color
+\definecolor{footcol}{rgb}{0.23, 0.27, 0.29}
+
+
+
+%-----------------------------------------------------------------------------
+% 	HEADER and FOOTER
+%-----------------------------------------------------------------------------
+
+% remove top header line
+\renewcommand{\headrulewidth}{0pt} 
+
+%remove botttom header line
+\renewcommand{\footrulewidth}{0pt}	  	
+
+%remove pagenum
+\renewcommand{\thepage}{}	
+
+%remove section num		
+\renewcommand{\thesection}{}			
+
+\cfoot{\color{footcol}\textit{Updated: xx Month 20xx}}
+
+
+%-----------------------------------------------------------------------------
+%	custom sections
+%-----------------------------------------------------------------------------
+
+%CVSECTION 
+\newcommand{\cvsection}[1]
+{
+	\begin{center}
+		\Large\textcolor{sectcol}{\textbf{#1}}
+	\end{center}
+}
+
+%CVSUBSECTION
+\newcommand{\cvsubsection}[1]
+{
+\begin{center}
+  \large\textcolor{subsectcol}{\textbf{#1}}\\[2pt]
+\end{center}
+}
+% CVMETASECTION
+\newcommand{\cvmetasection}[1]
+{
+\begin{center}
+  \normalsize{#1}\\ [2pt] 
+\end{center}
+}
+
+%-----------------------------------------------------------------------------
+%	 CV EVENT
+%----------------------------------------------------------------------------- 
+
+% param 1:	event time i.e. 2022 or 2021-2022 etc.
+% param 2:	Position i.e. Postdoc fellow/assistant professor/associate professor/professor
+% param 3:	institution (where did you work / study)
+% param 4:	Some itemize details
+%
+\newcommand{\cvevent}[4]
+{
+\begin{tabular*}{1\textwidth}{p{13.9cm}  x{3.4cm}}
+	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{1pt}\textcolor{sectcol}{#1}\end{tabular*}
+  #4
+\vspace{4pt}
+}
+
+%create a coloured arrow with title as cv meta section section
+% param 1: meta section title
+%
+\newcommand{\metasection}[2]
+{
+\footnotesize{#2} \hspace*{\fill} \footnotesize{#1}\\[1pt]
+}
+
+% CUSTOM STRUT FOR EMPTY BOXES
+%----------------------------------------- -----------------------------------------------
+\newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
+
+%-----------------------------------------------------------------------------
+%FONTAWESOME ICONS DEFINITIONS
+%email
+\def \emailicon {\faEnvelope}
+\def \emailtext {E-mail address}
+\def \email {\emailicon \hspace{3pt}{\emailtext}}
+
+%website
+\def \websiteicon {\faGlobe}
+\def \websitetext {Homepage}
+\def \website {\websiteicon \hspace{3pt}{\websitetext}}
+
+%Address
+\def \mailicon {\faMapMarker}
+\def \mailtext {Address}
+\def \mail {\mailicon \hspace{3pt}{\mailtext}}
+%============================================================================
+%	DOCUMENT CONTENT
+%============================================================================%
+\begin{document}
+%use our custom fancy header definitions
+\pagestyle{fancy}	
+%---------------------------------------------------------------------------------------
+%	TITLE HEADLINE
+%----------------------------------------------------------------------------------------
+\vspace{-8pt}
+\begin{center}
+	\HUGE \textsc{Name}\\[2pt]
+ \Large Position
+\end{center}
+\vspace{2pt}
+
+
+%---------------------------------------------------------------------------------------
+%	CV META SECTION
+%---------------------------------------------------------------------------------------
+\cvmetasection{\mail}
+\cvmetasection{\website}
+\cvmetasection{\email}
+\vspace{-2pt}
+\textcolor{darkcol}{\hrule}
+\vspace{4pt}
+\normalsize
+\vspace{4pt}
+
+\cvsection{Research Interest}
+\hspace{3pt}
+[Research Interest]
+\cvsection{Work and Research Experience}
+\cvevent{xx/20xx – xx/20xx}{Position (postdoc fellow/professor)}{Department and Institute}{\begin{itemize}
+\itemsep0em
+    \item \textbf{Areas of research:} Electromagnetics
+\end{itemize}}
+\cvsection{Education}
+\cvevent{xx/20xx – xx/20xx}{Doctor of Philosophy}{Department and Institute}{\begin{itemize}
+\itemsep0em
+    \item \textbf{Thesis title:} XYZ.
+    \item \textbf{Advisor:} Prof.XYZ.
+\end{itemize}}
+\cvsection{Publications}
+[Use etaremune environment for reverse chronological order, otherwise use enumerate environment.]
+\cvsubsection{Under preparation/Under review/Accepted}
+\begin{etaremune}
+\itemsep0em
+\item List of authors, ``Title", 20xx.\\ \colorbox{yellow}{Under review}.
+\end{etaremune}
+\cvsubsection{Journal Papers}
+\begin{etaremune}
+\itemsep0em
+\item List of authors, ``Title'', \textit{Journal name}, vol.(issue), pp. xx-xx, 20xx.
+\end{etaremune}
+\cvsubsection{Conference Papers}
+\begin{etaremune}
+\itemsep0em
+\item List of authors, ``Title", \textit{Conference name}, Location, year, pp. xx-xx.
+\end{etaremune}
+\cvsection{Talks}
+\begin{etaremune}
+\itemsep0em
+\item Name, ``Title", \textit{Talk type (Invited/Keynote)}, Location, Year.
+\end{etaremune}
+\cvsection{Awards and Grants}
+\cvevent{20xx}{Award/Grant Name}{Brief detail (type of award/funding source)}{}
+\cvsection{Editorial Services}
+\cvevent{20xx – 20xx}{Editor/Associate Editor/Guest Editor}{Name of Journal}{}
+\cvsection{Professional/Volunteer Activities}
+\cvevent{20xx}{Session Chair/Committee Member}{Details}{}
+\cvsection{Reviewers}
+\cvsubsection{Journals}
+\begin{itemize}
+\itemsep0em
+    \item Name of Journals. This field can be categorize according to the publishers (IEEE/Optica).
+\end{itemize}
+\cvsubsection{Conferences}
+\begin{itemize}
+\itemsep0em
+    \item \textbf{2022:} Name of conferences.
+    \item \textbf{2021:} Name of conferences.
+\end{itemize}
+\cvsection{Professional Memberships}
+\begin{itemize}
+\itemsep0em
+    \item Membership of professional societies (IEEE, APS etc.)
+\end{itemize}
+\cvsection{References}
+\begin{enumerate}
+    \item Provide references here (Name, Affiliation, E-mail)   
+\end{enumerate}
+\end{document}
